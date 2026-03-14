@@ -113,9 +113,9 @@ git push origin your-branch-name
    - what is not done
    - any blockers
 
-## Fallback Workflow If Git Is Hard For You
+## Alternate Workflow If You Need Manual Handoff
 
-If you struggle with Git, do this instead:
+If you need a manual handoff path, do this instead:
 
 1. still read the repo locally
 2. edit only your assigned files
@@ -131,7 +131,7 @@ Integrator for this repo:
 
 - `220041379 - MUHANNAD ALKHARMANI`
 
-This fallback is allowed, but it is only safe if you stay inside your area.
+This manual handoff path is allowed, but it is only safe if you stay inside your area.
 
 ## If You Are Stuck, Do This
 

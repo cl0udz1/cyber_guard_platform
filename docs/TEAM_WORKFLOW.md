@@ -45,7 +45,7 @@ Current integrator and merge coordinator:
 
 Integrator responsibilities:
 
-- review incoming branches or fallback file handoffs
+- review incoming branches or manual file handoffs
 - protect `main`
 - check that status docs are updated
 - merge only after area ownership is respected
@@ -103,17 +103,17 @@ Escalate to the integrator when:
 - you are blocked for more than one day
 - another task depends on your unfinished file
 - two branches touch the same core file
-- someone cannot use Git properly
+- someone needs a manual submission path
 - a change risks breaking the public/private data separation rule
 
-## Fallback For Weak Git Users
+## Manual Handoff Option
 
-This repo supports a controlled fallback:
+This repo supports a controlled manual handoff option:
 
-- weak Git users still read the repo locally
+- contributors still read the repo locally
 - they edit only assigned files
 - they send changed files or a zip to the integrator
 - the integrator merges manually
 - the teammate still must report status and blockers clearly
 
-This fallback is a safety path, not an excuse to edit outside assigned areas.
+This manual handoff option is a safety path, not an excuse to edit outside assigned areas.

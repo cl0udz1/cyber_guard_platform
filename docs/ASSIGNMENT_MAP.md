@@ -243,7 +243,7 @@
   - frontend page logic
 - Dependencies:
   - needs stable route names and schema names from all owners
-  - acts as integration point for weak Git users
+  - coordinates documentation and test handoff with the current integrator
 - Deliverables:
   - status tracker stays current
   - weekly TODO files stay actionable

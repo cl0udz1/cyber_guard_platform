@@ -84,7 +84,7 @@ Normal path:
 - push your branch
 - ask the integrator to review/merge
 
-Fallback path for weak Git users:
+Alternate submission path:
 
 - edit only your assigned files locally
 - send the changed files or a zipped patch to the integrator
@@ -98,7 +98,7 @@ Current integrator / maintainer for this team scaffold:
 
 - `220041379 - MUHANNAD ALKHARMANI`
 
-That role is documented so weaker Git users still have a safe submission path.
+That role is documented so contributors always have a safe submission path.
 
 ## Quick Validation Commands
 

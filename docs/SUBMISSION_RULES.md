@@ -32,9 +32,9 @@ Shared files require coordination first:
 - `backend/app/api/deps.py`
 - shared frontend shell/types files
 
-## Fallback Submission Rule
+## Alternate Submission Rule
 
-If you cannot use Git properly:
+If you need a manual handoff path:
 
 - edit only your assigned files
 - send only those files to the integrator
