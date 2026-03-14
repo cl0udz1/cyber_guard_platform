@@ -1,157 +1,131 @@
 # Cyber Guard Platform
 
-This repository is a Senior Project II implementation scaffold, not a finished application. Its job is to act as an implementation map for a 6-person student team: the folder structure, placeholders, API stubs, diagrams, weekly TODO files, and ownership notes are the product here.
+## Course Context
 
-## What Cyber Guard Is
+- Course: Senior Project II
+- Group: CRN Groups Info - Jeddah Male
+- CRN: `27349`
 
-Cyber Guard is a web platform where users and organizations can:
+## What This Repo Is
+
+This repository is a scaffold-first implementation map for the Cyber Guard Platform. It is designed so six students can start work immediately, understand ownership quickly, and build in parallel without turning the repo into chaos.
+
+The local filesystem is the current source of truth for this project structure.
+
+## What This Repo Is Not
+
+- not a finished production application
+- not the place to overengineer infrastructure
+- not a giant polished demo
+- not a free-for-all where everyone edits everything
+
+Many files are intentionally placeholders with comments, TODOs, and ownership hints. That is expected.
+
+## Updated Project Summary
+
+Cyber Guard is a web platform where Users and Organizations can:
 
 - create accounts
-- join organizations with workspace roles
-- submit artifacts for analysis by file upload, hash, URL, or pasted email signal
+- work inside organizations with workspaces and roles
+- submit file/hash, URL, and email indicator artifacts
 - run asynchronous scan jobs
-- normalize artifacts, extract IOCs, enrich from multiple threat-intel sources, and optionally use AI analysis
-- generate private threat reports and dashboard views
-- publish anonymized reports to a public threats page
-- upload external reports for anonymous public sharing through admin review
+- normalize artifacts and enrich them from multiple threat-intel sources
+- optionally run AI analysis in local mode or API mode
+- generate private threat reports and dashboard visuals
+- publish anonymized reports to a public Threats page
+- send external reports through admin review before public publishing
 - optionally expose a future Public Threats API
 
-Critical rule: public threat data must remain disconnected from private identity and workspace data.
+Critical rule: public threat data must not link back to private identity or workspace data.
 
-## What This Repo Is For
+## Start Here
 
-- showing the updated product scope clearly
-- showing where each backend/frontend concern belongs
-- keeping assignment ownership visible
-- giving the team a realistic next-step checklist without pretending the whole app is already built
+Read these in this order before you change anything:
 
-The backend and frontend both run, but many files are intentionally placeholders with rich headers and TODO blocks.
+1. `README.md`
+2. `CONTRIBUTING.md`
+3. `docs/ASSIGNMENT_MAP.md`
+4. `docs/WEEK_1_TODO.md`
+5. `docs/IMPLEMENTATION_STATUS.md`
 
-## Quick Start
+If you skip that order, you will probably touch the wrong files.
 
-### Backend
+## Quick Structure Summary
 
-```bash
-cd backend
-python -m venv .venv
-.venv\Scripts\Activate.ps1
-pip install -r requirements.txt
-copy .env.example .env
-uvicorn app.main:app --reload
+```text
+backend/   -> FastAPI scaffold, models, schemas, services, tests
+frontend/  -> React scaffold, pages, components, mocks, types
+docs/      -> assignment map, workflow, weekly TODOs, diagrams, status tracking
 ```
 
-### Frontend
+Important high-level folders:
 
-```bash
-cd frontend
-npm install
-copy .env.example .env
-npm run dev
-```
+- `backend/app/api/routes/` for endpoint ownership
+- `backend/app/services/` for real implementation work
+- `backend/app/models/` and `backend/app/schemas/` for data contracts
+- `frontend/src/pages/` and `frontend/src/components/` for UI ownership
+- `docs/` for coordination, assignment, and reporting
 
-### Validation
+## Start Working In One Simple Flow
+
+1. Read the required files above.
+2. Find your name in `docs/ASSIGNMENT_MAP.md`.
+3. Create your branch using the branch format from `CONTRIBUTING.md`.
+4. Work only inside your assigned files unless you coordinate first.
+5. Update the weekly TODO file and `docs/IMPLEMENTATION_STATUS.md`.
+6. Submit your work to the integrator.
+
+## How To Submit Work
+
+Normal path:
+
+- create your branch
+- commit only your assigned changes
+- push your branch
+- ask the integrator to review/merge
+
+Fallback path for weak Git users:
+
+- edit only your assigned files locally
+- send the changed files or a zipped patch to the integrator
+- send a short note with: what changed, what is unfinished, what is blocked
+
+Detailed instructions are in `CONTRIBUTING.md` and `docs/SUBMISSION_RULES.md`.
+
+## Who Integrates And Merges Changes
+
+Current integrator / maintainer for this team scaffold:
+
+- `220003069 - ABDULLAH BAALI`
+
+That role is documented so weaker Git users still have a safe submission path.
+
+## Quick Validation Commands
+
+Backend:
 
 ```bash
 cd backend
 pytest -q
+```
 
-cd ../frontend
+Frontend:
+
+```bash
+cd frontend
 npm run build
 ```
 
-Demo passwords in the scaffold:
+## Key Coordination Docs
 
-- org routes: `org-admin-demo`
-- admin review routes: `platform-admin-demo`
+- `CONTRIBUTING.md`
+- `docs/TEAM_WORKFLOW.md`
+- `docs/ASSIGNMENT_MAP.md`
+- `docs/IMPLEMENTATION_STATUS.md`
+- `docs/TASK_CARDS.md`
+- `docs/SUBMISSION_RULES.md`
+- `docs/HANDOFF_CHECKLIST.md`
 
-## Architecture Tree
+## Scaffold Reminder
 
-```text
-cyber-guard-platform/
-|-- backend/
-|   |-- app/
-|   |   |-- api/
-|   |   |   |-- routes/
-|   |   |-- core/
-|   |   |-- db/
-|   |   |   |-- models/
-|   |   |-- models/
-|   |   |-- schemas/
-|   |   |-- services/
-|   |   |   |-- enrichment/
-|   |   |   |-- ai/
-|   |   |-- utils/
-|   |-- tests/
-|   |   |-- unit/
-|   |   |-- integration/
-|   |   |-- contract/
-|-- frontend/
-|   |-- src/
-|   |   |-- api/
-|   |   |-- app/
-|   |   |-- pages/
-|   |   |   |-- auth/
-|   |   |   |-- dashboard/
-|   |   |   |-- scan/
-|   |   |   |-- reports/
-|   |   |   |-- public-threats/
-|   |   |   |-- admin/
-|   |   |   |-- workspace/
-|   |   |-- components/
-|   |   |-- features/
-|   |   |-- types/
-|   |   |-- utils/
-|   |   |-- mocks/
-|-- docs/
-|   |-- PROJECT_PLAN.md
-|   |-- API_CONTRACT.md
-|   |-- TEST_PLAN.md
-|   |-- ARCHITECTURE.md
-|   |-- DATA_FLOW.md
-|   |-- ASSIGNMENT_MAP.md
-|   |-- IMPLEMENTATION_STATUS.md
-|   |-- WEEK_1_TODO.md ... WEEK_6_TODO.md
-|   |-- diagrams/
-```
-
-## Implementation Phases
-
-### MVP
-
-1. auth, orgs, workspaces, and RBAC scaffold
-2. models, schemas, and API contract alignment
-3. async scan orchestration skeleton with multi-source adapters
-4. private reports, public sharing, and admin review structure
-5. frontend page/component ownership map
-6. tests, docs, and implementation tracking
-
-### Later / Phase 2
-
-- public threats API
-- richer trend analytics
-- real background workers
-- real adapter integrations
-- real AI provider/local model implementations
-
-## How The Team Should Use This Repo
-
-1. Read [`docs/ASSIGNMENT_MAP.md`](docs/ASSIGNMENT_MAP.md) before splitting work.
-2. Use [`docs/IMPLEMENTATION_STATUS.md`](docs/IMPLEMENTATION_STATUS.md) as the live tracker.
-3. Work from the current weekly file in `docs/WEEK_*_TODO.md`.
-4. Keep placeholders and TODOs meaningful when adding new files.
-5. Preserve the privacy boundary: public threat records must not expose identity/workspace linkage.
-
-## Key Docs
-
-- [`docs/PROJECT_PLAN.md`](docs/PROJECT_PLAN.md)
-- [`docs/API_CONTRACT.md`](docs/API_CONTRACT.md)
-- [`docs/TEST_PLAN.md`](docs/TEST_PLAN.md)
-- [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md)
-- [`docs/DATA_FLOW.md`](docs/DATA_FLOW.md)
-- [`docs/ASSIGNMENT_MAP.md`](docs/ASSIGNMENT_MAP.md)
-- [`docs/IMPLEMENTATION_STATUS.md`](docs/IMPLEMENTATION_STATUS.md)
-- [`docs/diagrams/SYSTEM_OVERVIEW.md`](docs/diagrams/SYSTEM_OVERVIEW.md)
-- [`docs/diagrams/DATA_SEPARATION.md`](docs/diagrams/DATA_SEPARATION.md)
-- [`docs/diagrams/SCAN_PIPELINE.md`](docs/diagrams/SCAN_PIPELINE.md)
-- [`docs/diagrams/SHARING_REVIEW_FLOW.md`](docs/diagrams/SHARING_REVIEW_FLOW.md)
-- [`docs/diagrams/ERD.md`](docs/diagrams/ERD.md)
+This repo should continue to feel like a smart scaffold with placeholders, TODOs, ownership hints, and coordination docs. If you are about to turn a placeholder into a full subsystem by yourself, stop and check the assignment map first.

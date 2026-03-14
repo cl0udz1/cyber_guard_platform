@@ -1,34 +1,58 @@
 # WEEK_1_TODO.md
 
-## Goal
+## Week Goal
 
-Lock scope and finish the repo refresh so the team is working from the same product definition.
+Make sure every teammate understands the refreshed Cyber Guard scaffold, the assignment split, the branch workflow, and the privacy boundary before feature work starts.
+
+## Target Outcome
+
+The team is branch-ready, assignment-ready, and using one shared coordination flow.
 
 ## Deliverables
 
-- updated README
-- updated architecture and plan docs
-- cleaned backend/frontend folder structure
-- assignment map and implementation tracker in use
+- assignment map finalized with names
+- contributing/workflow docs understood by everyone
+- branch names created
+- status tracker baseline filled
+- repo structure verified by all owners
 
-## Per-Owner Tasks
+## Owner-By-Owner Tasks
 
-| Owner | Tasks | Main Files |
+| Owner | Tasks | Files |
 |---|---|---|
-| A | Confirm route groups and schema ownership boundaries. | `backend/app/api/*`, `docs/API_CONTRACT.md` |
-| B | Confirm service boundaries for scan orchestration, reporting, and sharing. | `backend/app/services/*`, `docs/ARCHITECTURE.md` |
-| C | Confirm model list and privacy boundary at the data level. | `backend/app/models/*`, `docs/diagrams/ERD.md` |
-| D | Confirm scan/report frontend page ownership and component grouping. | `frontend/src/pages/scan/*`, `frontend/src/pages/reports/*` |
-| E | Confirm dashboard/public/admin page ownership and wording. | `frontend/src/pages/dashboard/*`, `frontend/src/pages/public-threats/*`, `frontend/src/pages/admin/*` |
-| F | Update assignment docs, weekly plan, and implementation tracker. | `docs/ASSIGNMENT_MAP.md`, `docs/IMPLEMENTATION_STATUS.md`, `docs/WEEK_*.md` |
+| BANDER SHOWAIL | Review auth/org/workspace route and schema boundaries. Confirm any naming issues now. | `backend/app/api/routes/auth.py`, `users.py`, `orgs.py`, `workspaces.py`, `backend/app/schemas/auth.py`, `org.py`, `workspace.py` |
+| FARIS BIN SUMAYDI | Review scan job and artifact intake flow. Confirm artifact types and normalized input assumptions. | `backend/app/api/routes/scan_jobs.py`, `backend/app/schemas/artifact.py`, `scan.py`, `backend/app/services/artifact_service.py`, `normalization_service.py` |
+| OMAR ABDURASHEED | Review enrichment/AI/cache/orchestrator ownership. Confirm which files are adapter-specific. | `backend/app/services/scan_orchestrator.py`, `backend/app/services/enrichment/*`, `backend/app/services/ai/*`, `backend/app/services/caching_service.py` |
+| MUHANNAD ALKHARMANI | Review report/dashboard/public-sharing/admin-review backend flow. Confirm boundaries. | `backend/app/api/routes/reports.py`, `dashboard.py`, `public_threats.py`, `admin_reviews.py`, `backend/app/services/report_service.py`, `public_sharing_service.py` |
+| GHAZA ALAMTRAFA | Review page/component ownership and frontend file grouping. | `frontend/src/app/*`, `frontend/src/pages/*`, `frontend/src/components/*`, `frontend/src/types/*` |
+| ABDULLAH BAALI | Finalize docs workflow, status tracker baseline, and weekly coordination setup. | `README.md`, `CONTRIBUTING.md`, `docs/TEAM_WORKFLOW.md`, `docs/IMPLEMENTATION_STATUS.md`, `docs/ASSIGNMENT_MAP.md` |
 
-## Dependency Notes
+## Files Involved
 
-- Do not start detailed implementation until the new concept is accepted by the whole team.
-- Keep public/private data separation visible in every new plan or file.
+- `README.md`
+- `CONTRIBUTING.md`
+- `docs/ASSIGNMENT_MAP.md`
+- `docs/IMPLEMENTATION_STATUS.md`
+- `docs/TEAM_WORKFLOW.md`
+- `docs/SUBMISSION_RULES.md`
 
-## Done Criteria
+## Dependencies
 
-- team agrees on updated product truth
-- no major old-concept files remain in active folders
-- ownership map is usable for assignment splitting
+- Nobody starts broad implementation until all six owners agree the file split is clear.
+- Abdullah needs owner confirmation from everyone before freezing the tracker baseline.
+
+## Definition Of Done
+
+- every teammate has read the required docs
+- every teammate has their branch name
+- status tracker is filled with owners and baseline notes
+- no confusion remains about who owns what
+
+## Supervisor / Demo Readiness Checkpoint
+
+- team can explain the updated product concept and assignment split in one short meeting
+
+## Carry-Over Notes
+
+- add blockers here if any teammate still cannot clone, branch, or identify their files
+- add renaming issues here if any schema/route names still feel unclear

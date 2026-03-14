@@ -1,6 +1,9 @@
 """
 Purpose:
     Private report and sharing workflow endpoints.
+Owner:
+    Primary: 220041379 - MUHANNAD ALKHARMANI
+    Coordinate with: 220028863 - BANDER SHOWAIL for access rules
 Inputs:
     Report IDs, publish requests, and external upload payloads.
 Outputs:
@@ -10,6 +13,7 @@ Dependencies:
 TODO Checklist:
     - [ ] Add real report persistence and fetch-by-workspace authorization.
     - [ ] Add report export endpoints if PDF generation becomes part of the delivery plan.
+    - [ ] Preserve Disconnect by Design when publication flow gets richer.
 """
 
 from fastapi import APIRouter, Depends, HTTPException, status

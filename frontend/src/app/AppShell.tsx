@@ -1,3 +1,17 @@
+/**
+ * Purpose:
+ *   Frontend shell that maps major Cyber Guard domains to assignment-friendly page groups.
+ * Owner:
+ *   Primary: 220050709 - GHAZA ALAMTRAFA
+ * Inputs:
+ *   Local active view state and static scaffold page map.
+ * Outputs:
+ *   A navigable frontend shell that mirrors the repo structure.
+ * TODO:
+ *   - [ ] Keep this shell lightweight; avoid moving feature logic here.
+ *   - [ ] Coordinate with backend owners before changing page names tied to route groups.
+ */
+
 import { useState } from "react";
 
 import AppHeader from "../components/layout/AppHeader";

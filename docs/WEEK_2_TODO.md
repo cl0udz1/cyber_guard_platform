@@ -1,34 +1,55 @@
 # WEEK_2_TODO.md
 
-## Goal
+## Week Goal
 
-Finish backend model/schema/contract alignment so implementation can start without route confusion.
+Stabilize models, schemas, contracts, auth rules, and workspace boundaries.
+
+## Target Outcome
+
+The backend contract surface is clear enough that frontend and service work can proceed without guessing names.
 
 ## Deliverables
 
-- stable schema files
-- stable route surface
-- stable model list
-- initial RBAC and privacy helpers
+- stable auth/org/workspace/membership schema names
+- stable artifact/report/public-threat schema names
+- API contract aligned with actual route files
+- implementation tracker updated with any dependency changes
 
-## Per-Owner Tasks
+## Owner-By-Owner Tasks
 
-| Owner | Tasks | Main Files |
+| Owner | Tasks | Files |
 |---|---|---|
-| A | Refine request/response models for auth, orgs, workspaces, scan jobs, and reports. | `backend/app/schemas/*`, `backend/app/api/routes/*` |
-| B | Confirm service input/output shapes match route payloads. | `backend/app/services/*` |
-| C | Finalize entity fields and FK intentions without overbuilding. | `backend/app/models/*` |
-| D | Mirror important backend contract types in frontend planning files. | `frontend/src/types/*`, `frontend/src/api/endpoints.ts` |
-| E | Review public-threats/admin route shapes for frontend needs. | `frontend/src/pages/public-threats/*`, `frontend/src/pages/admin/*` |
-| F | Update API contract and test plan to match exact route names. | `docs/API_CONTRACT.md`, `docs/TEST_PLAN.md` |
+| BANDER SHOWAIL | Finalize auth, user, org, workspace, and permission scaffolds. | `backend/app/api/routes/auth.py`, `users.py`, `orgs.py`, `workspaces.py`, `backend/app/core/permissions.py`, `backend/app/models/user.py`, `organization.py`, `workspace.py`, `membership.py` |
+| FARIS BIN SUMAYDI | Finalize artifact submission and scan job schema boundaries. | `backend/app/schemas/artifact.py`, `scan.py`, `backend/app/api/routes/scan_jobs.py` |
+| OMAR ABDURASHEED | Review adapter and cache interfaces to ensure downstream compatibility. | `backend/app/services/scan_orchestrator.py`, `backend/app/services/enrichment/base.py`, `backend/app/services/ai/base.py`, `backend/app/services/caching_service.py` |
+| MUHANNAD ALKHARMANI | Finalize report/dashboard/public/admin schema shape. | `backend/app/schemas/report.py`, `dashboard.py`, `public_threats.py`, `admin_review.py`, `backend/app/api/routes/reports.py`, `dashboard.py`, `public_threats.py`, `admin_reviews.py` |
+| GHAZA ALAMTRAFA | Mirror stable backend contract names into frontend types and page assumptions. | `frontend/src/types/*`, `frontend/src/pages/*`, `frontend/src/api/endpoints.ts` |
+| ABDULLAH BAALI | Update API contract, status tracker, and test plan after names are locked. | `docs/API_CONTRACT.md`, `docs/IMPLEMENTATION_STATUS.md`, `docs/TEST_PLAN.md` |
 
-## Dependency Notes
+## Files Involved
 
-- route shapes should stabilize before deep frontend wiring begins
-- avoid adding endpoints that have no clear assignment owner
+- `backend/app/models/*`
+- `backend/app/schemas/*`
+- `backend/app/api/routes/*`
+- `docs/API_CONTRACT.md`
+- `frontend/src/types/*`
 
-## Done Criteria
+## Dependencies
 
-- route groups are frozen at scaffold level
-- schema names and file ownership are clear
-- team can start implementation without guessing field names
+- Ghaza and Abdullah need Band/Faris/Muhannad contract names to stop moving.
+- Public/private separation must stay explicit in public report and admin review schemas.
+
+## Definition Of Done
+
+- the team can point to one stable file for each domain contract
+- backend route names and main schema fields stop changing casually
+- frontend owner can safely type against current backend docs
+
+## Supervisor / Demo Readiness Checkpoint
+
+- show one clean route map and one clean entity map with no old guest-scan leftovers
+
+## Carry-Over Notes
+
+- list any schema names still under discussion
+- list any shared file conflicts needing integrator coordination

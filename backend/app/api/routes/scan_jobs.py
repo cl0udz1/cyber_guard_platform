@@ -1,6 +1,9 @@
 """
 Purpose:
     Async scan job endpoints for artifact submission and job polling.
+Owner:
+    Primary: 220053973 - FARIS BIN SUMAYDI
+    Support: 220042711 - OMAR ABDURASHEED
 Inputs:
     Scan job create payloads and authenticated principal context.
 Outputs:
@@ -10,6 +13,7 @@ Dependencies:
 TODO Checklist:
     - [ ] Split file upload handling from pasted artifacts when multipart support is added.
     - [ ] Add DB-backed job history and pagination once persistence exists.
+    - [ ] Keep route behavior aligned with `docs/API_CONTRACT.md`.
 """
 
 from fastapi import APIRouter, Depends, HTTPException, status

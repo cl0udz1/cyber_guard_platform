@@ -1,6 +1,9 @@
 """
 Purpose:
     Coordinate artifact normalization, IOC extraction, enrichment, optional AI, and report creation.
+Owner:
+    Primary: 220042711 - OMAR ABDURASHEED
+    Coordinate with: 220053973 - FARIS BIN SUMAYDI for pipeline entry assumptions
 Inputs:
     Scan job creation requests from API routes.
 Outputs:
@@ -11,6 +14,7 @@ TODO Checklist:
     - [ ] Move long-running execution to a real background worker.
     - [ ] Persist job state to the database instead of process memory.
     - [ ] Add retry/error handling per adapter when integrations are implemented.
+    - [ ] Keep this file orchestration-focused; do not bury route or UI logic here.
 """
 
 from datetime import datetime, timezone

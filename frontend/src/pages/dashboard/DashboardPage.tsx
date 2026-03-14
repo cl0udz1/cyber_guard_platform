@@ -1,3 +1,17 @@
+/**
+ * Purpose:
+ *   Placeholder dashboard page for workspace metrics and owner-visible summary cards.
+ * Owner:
+ *   Primary: 220050709 - GHAZA ALAMTRAFA
+ *   Coordinate with: 220041379 - MUHANNAD ALKHARMANI for backend dashboard fields
+ * Inputs:
+ *   Static metric cards and dashboard ownership notes.
+ * Outputs:
+ *   Assignment-friendly dashboard page scaffold.
+ * TODO:
+ *   - [ ] Add live `/dashboard/overview` integration after backend fields are locked.
+ */
+
 import MetricsBoard from "../../components/dashboard/MetricsBoard";
 import PlaceholderPanel from "../../components/shared/PlaceholderPanel";
 import { dashboardMetrics } from "../../mocks/overview";

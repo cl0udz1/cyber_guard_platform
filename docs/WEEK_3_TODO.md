@@ -1,34 +1,56 @@
 # WEEK_3_TODO.md
 
-## Goal
+## Week Goal
 
-Build the scan orchestration skeleton: normalization, IOC extraction, adapters, caching, and AI mode selection.
+Make the scan pipeline scaffold practical: artifact intake, normalization, IOC extraction, cache behavior, enrichment adapters, and AI mode routing.
+
+## Target Outcome
+
+The scan job flow reads like a real system even though it is still scaffold-level.
 
 ## Deliverables
 
-- working scaffold `POST /scan-jobs`
-- multi-source enrichment slots
-- local/API AI mode placeholders
-- duplicate submission cache behavior
+- understandable `scan-jobs` path
+- clear adapter boundaries
+- clear AI mode boundaries
+- duplicate submission behavior visible
 
-## Per-Owner Tasks
+## Owner-By-Owner Tasks
 
-| Owner | Tasks | Main Files |
+| Owner | Tasks | Files |
 |---|---|---|
-| A | Keep scan job route behavior and responses consistent. | `backend/app/api/routes/scan_jobs.py`, `backend/app/schemas/scan.py` |
-| B | Implement orchestration flow and adapter interfaces. | `backend/app/services/scan_orchestrator.py`, `backend/app/services/enrichment/*`, `backend/app/services/ai/*` |
-| C | Validate model alignment for artifact submissions, scan jobs, and enrichment results. | `backend/app/models/artifact_submission.py`, `backend/app/models/scan_job.py`, `backend/app/models/enrichment_result.py` |
-| D | Build scan page forms and queue view wiring plan. | `frontend/src/pages/scan/*`, `frontend/src/components/scan/*` |
-| E | Keep dashboard placeholders ready for scan-state metrics. | `frontend/src/pages/dashboard/*`, `frontend/src/components/dashboard/*` |
-| F | Add tests for duplicate submissions, adapter shape, and AI mode decisions. | `backend/tests/unit/*`, `backend/tests/integration/test_scan_jobs_routes.py` |
+| BANDER SHOWAIL | Confirm auth/workspace access assumptions for scan routes. | `backend/app/api/deps.py`, `backend/app/api/routes/scan_jobs.py` |
+| FARIS BIN SUMAYDI | Refine artifact intake, normalization, and pipeline entry comments/TODOs. | `backend/app/services/artifact_service.py`, `normalization_service.py`, `ioc_extraction_service.py`, `backend/app/utils/url_tools.py`, `email_tools.py`, `hashing.py` |
+| OMAR ABDURASHEED | Own orchestration, adapters, cache behavior, and AI routing structure. | `backend/app/services/scan_orchestrator.py`, `backend/app/services/caching_service.py`, `backend/app/services/enrichment/*`, `backend/app/services/ai/*` |
+| MUHANNAD ALKHARMANI | Confirm report-ready output shape from the pipeline. | `backend/app/services/report_service.py`, `backend/app/schemas/report.py`, `backend/app/api/routes/reports.py` |
+| GHAZA ALAMTRAFA | Make scan-related frontend pages/components reflect the backend pipeline steps clearly. | `frontend/src/pages/scan/ScanWorkspacePage.tsx`, `frontend/src/components/scan/*`, `frontend/src/types/scan.ts` |
+| ABDULLAH BAALI | Add or refine tests covering duplicate submission, adapter shape, and pipeline contract. | `backend/tests/integration/test_scan_jobs_routes.py`, `backend/tests/unit/test_enrichment_adapters.py`, `docs/TEST_PLAN.md` |
 
-## Dependency Notes
+## Files Involved
 
-- do not hard-code the app around a single source
-- keep AI optional and swappable
+- `backend/app/services/scan_orchestrator.py`
+- `backend/app/services/enrichment/*`
+- `backend/app/services/ai/*`
+- `backend/app/services/caching_service.py`
+- `frontend/src/pages/scan/*`
 
-## Done Criteria
+## Dependencies
 
-- scan job route works end-to-end at scaffold level
-- repeated identical submission reuses cached result
-- at least two enrichment adapters are visible in the flow
+- Omar depends on Faris for stable artifact input shape.
+- Muhannad depends on Omar for report-ready outputs.
+- Ghaza depends on current request/response names staying stable.
+
+## Definition Of Done
+
+- same submission shape is understandable across backend docs, schemas, tests, and frontend placeholders
+- multi-source enrichment is visible, not hidden behind one old source
+- AI remains optional, not forced into the pipeline
+
+## Supervisor / Demo Readiness Checkpoint
+
+- show one scan submission example and explain the steps from submission to report generation
+
+## Carry-Over Notes
+
+- note any adapter naming or AI mode questions here
+- record any unfinished caching behavior

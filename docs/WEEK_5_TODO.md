@@ -1,34 +1,57 @@
 # WEEK_5_TODO.md
 
-## Goal
+## Week Goal
 
-Upgrade the frontend from placeholder shell to assignment-ready implementation skeleton.
+Align the frontend shell tightly with the backend scaffold and keep docs/tests synchronized.
+
+## Target Outcome
+
+A beginner can open the frontend and immediately know where scan, report, dashboard, public-threat, and workspace work belongs.
 
 ## Deliverables
 
-- navigable frontend shell
-- page groups mapped to backend route groups
-- typed mocks and components by domain
-- clear ownership hints in the UI scaffold
+- clear frontend ownership map
+- stable frontend page groups
+- stable shared frontend types
+- docs/tests synced to the current shape
 
-## Per-Owner Tasks
+## Owner-By-Owner Tasks
 
-| Owner | Tasks | Main Files |
+| Owner | Tasks | Files |
 |---|---|---|
-| A | Confirm frontend/backend naming stays aligned. | `docs/API_CONTRACT.md`, `frontend/src/api/endpoints.ts` |
-| B | Expose any missing backend fields needed by pages. | `backend/app/schemas/*`, `backend/app/api/routes/*` |
-| C | Review RBAC and workspace context needs from the UI. | `backend/app/core/permissions.py`, `backend/app/models/membership.py` |
-| D | Implement scan and reports page wiring first. | `frontend/src/pages/scan/*`, `frontend/src/pages/reports/*`, `frontend/src/components/scan/*`, `frontend/src/components/reports/*` |
-| E | Implement dashboard, public threats, admin, and workspace pages. | `frontend/src/pages/dashboard/*`, `frontend/src/pages/public-threats/*`, `frontend/src/pages/admin/*`, `frontend/src/pages/workspace/*` |
-| F | Keep feature notes, types, and docs synchronized. | `frontend/src/features/*`, `frontend/src/types/*`, `docs/IMPLEMENTATION_STATUS.md` |
+| BANDER SHOWAIL | Confirm frontend auth/workspace assumptions are still correct. | `frontend/src/pages/auth/*`, `frontend/src/pages/workspace/*`, `backend/app/schemas/auth.py`, `workspace.py` |
+| FARIS BIN SUMAYDI | Confirm scan page uses the right artifact and job terminology. | `frontend/src/pages/scan/*`, `frontend/src/types/scan.ts`, `backend/app/schemas/artifact.py`, `scan.py` |
+| OMAR ABDURASHEED | Confirm adapter/AI/cache behavior is described correctly in the UI placeholders. | `frontend/src/pages/scan/*`, `frontend/src/features/scan-jobs/*`, `frontend/src/utils/copy.ts` |
+| MUHANNAD ALKHARMANI | Confirm report/dashboard/public-review wording matches backend flow. | `frontend/src/pages/reports/*`, `frontend/src/pages/dashboard/*`, `frontend/src/pages/public-threats/*`, `frontend/src/pages/admin/*` |
+| GHAZA ALAMTRAFA | Own frontend cleanup, placeholder quality, and page/component alignment. | `frontend/src/app/*`, `frontend/src/pages/*`, `frontend/src/components/*`, `frontend/src/types/*`, `frontend/src/mocks/*` |
+| ABDULLAH BAALI | Own test/doc sync and make sure the weekly/status docs still match the repo. | `backend/tests/*`, `docs/IMPLEMENTATION_STATUS.md`, `docs/TEST_PLAN.md`, `docs/WEEK_5_TODO.md` |
 
-## Dependency Notes
+## Files Involved
 
-- do not overbuild visuals before data contracts settle
-- prioritize clear ownership and file placement over polish
+- `frontend/src/app/*`
+- `frontend/src/pages/*`
+- `frontend/src/components/*`
+- `frontend/src/types/*`
+- `frontend/src/api/endpoints.ts`
+- `docs/TEST_PLAN.md`
 
-## Done Criteria
+## Dependencies
 
-- frontend shell reflects the updated product concept
-- every main page has a clear owner and component boundary
-- build passes cleanly
+- Ghaza depends on backend contracts remaining stable
+- Abdullah depends on frontend structure not drifting away from docs
+
+## Definition Of Done
+
+- frontend folders map cleanly to the backend domains
+- page ownership is obvious
+- build stays green
+- docs/tests describe the same structure users see in the repo
+
+## Supervisor / Demo Readiness Checkpoint
+
+- show the frontend shell and explain which teammate owns which page group
+
+## Carry-Over Notes
+
+- note any UI naming mismatches here
+- note any page/component ownership conflicts here

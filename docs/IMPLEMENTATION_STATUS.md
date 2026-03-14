@@ -1,17 +1,16 @@
 # IMPLEMENTATION_STATUS.md
 
-Use this as the live tracker during implementation. Replace owner labels with names as soon as assignments are locked.
+Last baseline update: `2026-03-15`
 
-| Area | Status | Owner | Main Files | Blockers | Notes |
-|---|---|---|---|---|---|
-| Repo restructure | Scaffold refreshed | A / F | `README.md`, `backend/app/*`, `frontend/src/*` | None | New concept reflected across backend, frontend, docs |
-| Auth + RBAC | Scaffold ready | A / C | `api/routes/auth.py`, `schemas/auth.py`, `core/permissions.py` | Real DB auth not implemented | Demo passwords and JWT scaffolding only |
-| Orgs + workspaces | Scaffold ready | A / C | `api/routes/orgs.py`, `api/routes/workspaces.py`, `models/organization.py`, `models/workspace.py` | DB persistence not wired | Good assignment surface |
-| Scan orchestration | Scaffold ready | B | `services/scan_orchestrator.py`, `services/enrichment/*`, `services/ai/*` | Real async worker not implemented | Contract and service boundaries are in place |
-| Reports | Scaffold ready | B / D | `services/report_service.py`, `api/routes/reports.py`, `pages/reports/*` | Real persistence/export missing | Private report flow is represented |
-| Public sharing | Scaffold ready | B / E | `services/public_sharing_service.py`, `schemas/public_threats.py`, `pages/public-threats/*` | Final sanitizer policy not written | Keep identity separation strict |
-| Admin review | Scaffold ready | A / E | `api/routes/admin_reviews.py`, `services/admin_review_service.py`, `pages/admin/*` | Queue persistence missing | External uploads route exists |
-| Dashboard | Scaffold ready | B / E | `api/routes/dashboard.py`, `services/dashboard_service.py`, `pages/dashboard/*` | Real aggregates missing | Current metrics are placeholders |
-| Tests | Basic suite passing | F | `backend/tests/*` | Need more coverage for org/workspace flows | `pytest -q` passes |
-| Frontend shell | Build passing | D / E | `frontend/src/app/*`, `frontend/src/pages/*`, `frontend/src/components/*` | No live API wiring yet | `npm run build` passes |
-| Docs + diagrams | In progress | F | `docs/*`, `docs/diagrams/*` | Keep synced with future changes | Use weekly TODO files and assignment map |
+| Area | Owner | Status | Main Files | Depends On | Last Update | Blockers | Notes |
+|---|---|---|---|---|---|---|---|
+| Repo onboarding + workflow | 220003069 - ABDULLAH BAALI | Ready now | `README.md`, `CONTRIBUTING.md`, `docs/TEAM_WORKFLOW.md` | None | 2026-03-15 | None | Beginner onboarding is now part of the repo |
+| Auth + current user context | 220028863 - BANDER SHOWAIL | Scaffold ready | `backend/app/api/routes/auth.py`, `backend/app/schemas/auth.py`, `backend/app/schemas/user.py` | Assignment lock | 2026-03-15 | Real DB auth not implemented | Keep this scaffold-level |
+| Orgs + workspaces + memberships | 220028863 - BANDER SHOWAIL | Scaffold ready | `backend/app/api/routes/orgs.py`, `backend/app/api/routes/workspaces.py`, `backend/app/models/organization.py`, `backend/app/models/workspace.py`, `backend/app/models/membership.py` | Auth context | 2026-03-15 | Persistence not wired | Good first implementation area |
+| RBAC + permissions | 220028863 - BANDER SHOWAIL | Scaffold ready | `backend/app/core/permissions.py`, `backend/app/api/deps.py` | Auth context | 2026-03-15 | Policy detail still simple | Must stay readable |
+| Artifact submission + scan jobs | 220053973 - FARIS BIN SUMAYDI | Scaffold ready | `backend/app/api/routes/scan_jobs.py`, `backend/app/schemas/artifact.py`, `backend/app/schemas/scan.py`, `backend/app/services/artifact_service.py`, `backend/app/services/normalization_service.py` | Auth/workspace context | 2026-03-15 | Multipart file path still placeholder | Keep request/response stable |
+| Enrichment + AI + cache | 220042711 - OMAR ABDURASHEED | Scaffold ready | `backend/app/services/scan_orchestrator.py`, `backend/app/services/enrichment/*`, `backend/app/services/ai/*`, `backend/app/services/caching_service.py` | Stable scan job inputs | 2026-03-15 | Real integrations not implemented | Multi-source structure is already present |
+| Reports + dashboard backend | 220041379 - MUHANNAD ALKHARMANI | Scaffold ready | `backend/app/api/routes/reports.py`, `backend/app/api/routes/dashboard.py`, `backend/app/services/report_service.py`, `backend/app/services/dashboard_service.py`, `backend/app/schemas/report.py`, `backend/app/schemas/dashboard.py` | Scan orchestration outputs | 2026-03-15 | Real persistence/aggregates missing | Keep private report flow clear |
+| Public sharing + admin review backend | 220041379 - MUHANNAD ALKHARMANI | Scaffold ready | `backend/app/api/routes/public_threats.py`, `backend/app/api/routes/admin_reviews.py`, `backend/app/services/public_sharing_service.py`, `backend/app/services/admin_review_service.py`, `backend/app/services/sanitization_service.py` | Report flow | 2026-03-15 | Final sanitizer policy still light | Protect Disconnect by Design |
+| Frontend pages + components | 220050709 - GHAZA ALAMTRAFA | Scaffold ready | `frontend/src/app/*`, `frontend/src/pages/*`, `frontend/src/components/*`, `frontend/src/types/*` | Stable backend contracts | 2026-03-15 | Live API wiring not done | `npm run build` passes |
+| Docs + tests + diagrams + integration | 220003069 - ABDULLAH BAALI | Active owner | `docs/*`, `docs/diagrams/*`, `backend/tests/*`, `frontend/src/api/endpoints.ts` | Stable names from all owners | 2026-03-15 | Must be updated whenever contracts move | Also current integrator / maintainer |
