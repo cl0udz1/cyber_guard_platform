@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This guide is written for students, including teammates who are not confident with Git or GitHub yet. Follow the steps exactly and keep your work inside your assigned area.
+This guide is written for all contributors and keeps the workflow simple, consistent, and easy to follow. Follow the steps exactly and keep your work inside your assigned area.
 
 ## Before You Start
 
@@ -12,6 +12,14 @@ Read these first:
 2. `docs/ASSIGNMENT_MAP.md`
 3. your current weekly TODO file
 4. `docs/IMPLEMENTATION_STATUS.md`
+
+If you plan to use Codex or another AI tool, also read:
+
+- `docs/CODEX_TEAM_JOURNEY.md`
+- `docs/AI_USAGE_GUIDE.md`
+- `docs/CODEX_VSCODE_QUICKSTART.md`
+- `docs/CODEX_PROMPT_TEMPLATES.md`
+- `docs/AI_REVIEW_CHECKLIST.md`
 
 ## Clone The Repo
 

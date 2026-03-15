@@ -125,6 +125,11 @@ npm run build
 - `docs/TASK_CARDS.md`
 - `docs/SUBMISSION_RULES.md`
 - `docs/HANDOFF_CHECKLIST.md`
+- `docs/AI_USAGE_GUIDE.md`
+- `docs/CODEX_TEAM_JOURNEY.md`
+- `docs/CODEX_VSCODE_QUICKSTART.md`
+- `docs/CODEX_PROMPT_TEMPLATES.md`
+- `docs/AI_REVIEW_CHECKLIST.md`
 
 ## Scaffold Reminder
 
