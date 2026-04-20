@@ -29,7 +29,9 @@ class AdminReview(Base):
     id: Mapped[str] = mapped_column(String(36), primary_key=True, default=lambda: str(uuid4()))
     review_type: Mapped[str] = mapped_column(String(32))
     submission_reference: Mapped[str] = mapped_column(String(64), index=True)
+    summary: Mapped[str] = mapped_column(Text)
     status: Mapped[str] = mapped_column(String(32), default="pending")
+    decision: Mapped[str | None] = mapped_column(String(32), nullable=True)
     requested_action: Mapped[str] = mapped_column(String(32), default="publish")
     reviewer_notes: Mapped[str | None] = mapped_column(Text, nullable=True)
     created_at: Mapped[datetime] = mapped_column(

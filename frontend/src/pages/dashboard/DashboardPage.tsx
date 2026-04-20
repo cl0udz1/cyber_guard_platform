@@ -22,7 +22,7 @@ export default function DashboardPage() {
       <MetricsBoard metrics={dashboardMetrics} />
       <PlaceholderPanel
         title="Dashboard Ownership Notes"
-        ownerHint="Frontend dashboard owner + backend dashboard owner"
+        ownerHint="220050709 GHAZA (frontend dashboard) + 220041379 MUHANNAD (backend dashboard)"
         summary="Dashboard work should stay lightweight at first: KPI cards, recent scan states, publish queue visibility, and source usage overview."
         todo={[
           "Wire `/dashboard/overview` before building extra charts.",

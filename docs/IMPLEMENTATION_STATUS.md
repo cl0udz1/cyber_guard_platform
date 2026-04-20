@@ -1,6 +1,7 @@
 # IMPLEMENTATION_STATUS.md
 
-Last baseline update: `2026-03-30`
+Last baseline update: ``
+Last baseline update: `2026-04-20`
 
 | Area | Owner | Status | Main Files | Depends On | Last Update | Blockers | Notes |
 |---|---|---|---|---|---|---|---|
@@ -10,7 +11,7 @@ Last baseline update: `2026-03-30`
 | RBAC + permissions | 220028863 - BANDER SHOWAIL | Scaffold ready | `backend/app/core/permissions.py`, `backend/app/api/deps.py` | Auth context | 2026-03-15 | Policy detail still simple | Must stay readable |
 | Artifact submission + scan jobs | 220053973 - FARIS BIN SUMAYDI | Scaffold ready | `backend/app/api/routes/scan_jobs.py`, `backend/app/schemas/artifact.py`, `backend/app/schemas/scan.py`, `backend/app/services/artifact_service.py`, `backend/app/services/normalization_service.py` | Auth/workspace context | 2026-03-15 | Multipart file path still placeholder | Keep request/response stable |
 | Enrichment + AI + cache | 220042711 - OMAR ABDURASHEED | Scaffold ready | `backend/app/services/scan_orchestrator.py`, `backend/app/services/enrichment/*`, `backend/app/services/ai/*`, `backend/app/services/caching_service.py` | Stable scan job inputs | 2026-03-15 | Real integrations not implemented | Multi-source structure is already present |
-| Reports + dashboard backend | 220041379 - MUHANNAD ALKHARMANI | Scaffold ready | `backend/app/api/routes/reports.py`, `backend/app/api/routes/dashboard.py`, `backend/app/services/report_service.py`, `backend/app/services/dashboard_service.py`, `backend/app/schemas/report.py`, `backend/app/schemas/dashboard.py` | Scan orchestration outputs | 2026-03-15 | Real persistence/aggregates missing | Keep private report flow clear |
-| Public sharing + admin review backend | 220041379 - MUHANNAD ALKHARMANI | Scaffold ready | `backend/app/api/routes/public_threats.py`, `backend/app/api/routes/admin_reviews.py`, `backend/app/services/public_sharing_service.py`, `backend/app/services/admin_review_service.py`, `backend/app/services/sanitization_service.py` | Report flow | 2026-03-15 | Final sanitizer policy still light | Protect Disconnect by Design |
+| Reports + dashboard backend | 220041379 - MUHANNAD ALKHARMANI | Active (DB-backed) | `backend/app/api/routes/reports.py`, `backend/app/api/routes/dashboard.py`, `backend/app/services/report_service.py`, `backend/app/services/dashboard_service.py`, `backend/app/schemas/report.py`, `backend/app/schemas/dashboard.py` | Scan orchestration outputs | 2026-04-20 | Time-range filters still optional | Report retrieval is workspace-scoped and dashboard metrics come from persisted data |
+| Public sharing + admin review backend | 220041379 - MUHANNAD ALKHARMANI | Active (DB-backed) | `backend/app/api/routes/public_threats.py`, `backend/app/api/routes/admin_reviews.py`, `backend/app/services/public_sharing_service.py`, `backend/app/services/admin_review_service.py`, `backend/app/services/sanitization_service.py` | Report flow | 2026-04-20 | Awaiting frontend wiring to new moderation behavior | Publish/external flows are persisted, moderated, and tied to sanitization checks |
 | Frontend pages + components | 220050709 - GHAZA ALAMTRAFA | Scaffold ready | `frontend/src/app/*`, `frontend/src/pages/*`, `frontend/src/components/*`, `frontend/src/types/*` | Stable backend contracts | 2026-03-15 | Live API wiring not done | `npm run build` passes |
 | Docs + tests + diagrams + integration | 220003069 - ABDULLAH BAALI | Active owner | `docs/*`, `docs/diagrams/*`, `backend/tests/*`, `frontend/src/api/endpoints.ts` | Stable names from all owners | 2026-03-30 | Must be updated whenever contracts move | Core docs were realigned to repo truth and the current backend test baseline passes locally |

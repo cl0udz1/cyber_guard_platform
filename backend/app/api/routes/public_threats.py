@@ -12,11 +12,12 @@ TODO Checklist:
     - [ ] Add separate rate limiting if the phase-2 API is exposed publicly.
 """
 
-from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi import APIRouter, Depends, HTTPException, Query, status
 
 from app.api.deps import get_public_sharing_service
 from app.schemas.public_threats import PublicThreatListResponse, PublicThreatSummary
 from app.services.public_sharing_service import PublicSharingService
+from app.utils.enums import ThreatSeverity
 
 router = APIRouter(prefix="/public-threats", tags=["public-threats"])
 
@@ -24,9 +25,16 @@ router = APIRouter(prefix="/public-threats", tags=["public-threats"])
 @router.get("", response_model=PublicThreatListResponse)
 async def list_public_threats(
     public_sharing_service: PublicSharingService = Depends(get_public_sharing_service),
+    limit: int = Query(default=20, ge=1, le=100),
+    cursor: str | None = Query(default=None),
+    severity: ThreatSeverity | None = Query(default=None),
 ) -> PublicThreatListResponse:
     """Return public-safe threat summaries."""
-    return public_sharing_service.list_public_reports()
+    return public_sharing_service.list_public_reports(
+        limit=limit,
+        cursor=cursor,
+        severity=severity,
+    )
 
 
 @router.get("/{public_report_id}", response_model=PublicThreatSummary)

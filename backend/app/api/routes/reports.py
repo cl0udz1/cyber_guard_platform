@@ -29,6 +29,7 @@ from app.schemas.report import ExternalReportUploadRequest, PublishRequest, Thre
 from app.services.admin_review_service import AdminReviewService
 from app.services.public_sharing_service import PublicSharingService
 from app.services.report_service import ReportService
+from app.utils.enums import PublicShareStatus
 
 router = APIRouter(prefix="/reports", tags=["reports"])
 
@@ -36,11 +37,11 @@ router = APIRouter(prefix="/reports", tags=["reports"])
 @router.get("/{report_id}", response_model=ThreatReportResponse)
 async def get_report(
     report_id: str,
-    _: CurrentPrincipal = Depends(get_current_principal),
+    principal: CurrentPrincipal = Depends(get_current_principal),
     report_service: ReportService = Depends(get_report_service),
 ) -> ThreatReportResponse:
     """Return a private threat report built by the scaffold pipeline."""
-    report = report_service.get_report(report_id)
+    report = report_service.get_report(report_id, workspace_id=principal.workspace_id)
     if report is None:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Threat report not found.")
     return report
@@ -50,17 +51,32 @@ async def get_report(
 async def request_publication(
     report_id: str,
     payload: PublishRequest,
-    _: CurrentPrincipal = Depends(get_current_principal),
+    principal: CurrentPrincipal = Depends(get_current_principal),
     report_service: ReportService = Depends(get_report_service),
     public_sharing_service: PublicSharingService = Depends(get_public_sharing_service),
     admin_review_service: AdminReviewService = Depends(get_admin_review_service),
 ) -> dict[str, object]:
     """Create a publication request preview for a private report."""
-    report = report_service.get_report(report_id)
+    report = report_service.get_report(report_id, workspace_id=principal.workspace_id)
     if report is None:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Threat report not found.")
+
     publish_request = public_sharing_service.create_publish_request(report, payload)
-    admin_review_service.create_review("report_publish_request", f"Review publish request for report {report_id}.")
+    report_service.set_publish_status(
+        report_id,
+        PublicShareStatus.PENDING_REVIEW,
+    )
+
+    public_report_id = str(publish_request.get("public_report_id") or "")
+    if public_report_id:
+        admin_review_service.create_review(
+            "report_publish_request",
+            f"Review publish request for report {report_id}.",
+            submission_reference=public_report_id,
+            requested_action="publish",
+        )
+
+    publish_request.pop("public_report_id", None)
     return publish_request
 
 
@@ -73,8 +89,11 @@ async def upload_external_report(
 ) -> dict[str, object]:
     """Accept an external report upload placeholder and place it in review."""
     result = public_sharing_service.accept_external_upload(payload)
+    upload_reference = str(result.get("upload_reference") or "")
     admin_review_service.create_review(
         "external_report_upload",
         f"Review external upload '{payload.title}' before public release.",
+        submission_reference=upload_reference,
+        requested_action="publish",
     )
     return result

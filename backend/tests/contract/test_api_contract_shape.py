@@ -22,3 +22,25 @@ def test_openapi_contains_expected_route_groups(client) -> None:
     paths = set(schema["paths"].keys())
 
     assert EXPECTED_PATHS.issubset(paths)
+
+
+def test_public_threat_schema_excludes_private_identity_fields(client) -> None:
+    schema = client.get("/openapi.json").json()
+    public_threat_properties = schema["components"]["schemas"]["PublicThreatSummary"]["properties"]
+
+    forbidden_fields = {
+        "organization_id",
+        "workspace_id",
+        "user_id",
+        "private_report_id",
+        "owner_email",
+    }
+    for field in forbidden_fields:
+        assert field not in public_threat_properties
+
+
+def test_publish_request_schema_forbids_extra_fields(client) -> None:
+    schema = client.get("/openapi.json").json()
+    publish_request_schema = schema["components"]["schemas"]["PublishRequest"]
+
+    assert publish_request_schema.get("additionalProperties") is False

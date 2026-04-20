@@ -12,6 +12,7 @@ TODO Checklist:
     - [ ] Add seeded organization/workspace fixtures when model tests begin.
 """
 
+import os
 import sys
 from pathlib import Path
 
@@ -22,7 +23,11 @@ BACKEND_ROOT = Path(__file__).resolve().parents[1]
 if str(BACKEND_ROOT) not in sys.path:
     sys.path.insert(0, str(BACKEND_ROOT))
 
+os.environ.setdefault("DATABASE_URL", "sqlite:///./test_cyber_guard.db")
+
 from app.core.security import create_access_token
+from app.db.base import Base
+from app.db.session import engine
 from app.main import app
 
 
@@ -31,6 +36,13 @@ def client() -> TestClient:
     """Return a plain TestClient for scaffold route testing."""
     with TestClient(app) as test_client:
         yield test_client
+
+
+@pytest.fixture(autouse=True)
+def reset_db_schema() -> None:
+    """Reset schema for each test so DB-backed services remain deterministic."""
+    Base.metadata.drop_all(bind=engine)
+    Base.metadata.create_all(bind=engine)
 
 
 @pytest.fixture()

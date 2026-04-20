@@ -40,7 +40,7 @@ class PublicReport(Base):
     indicator_count: Mapped[int] = mapped_column(default=0)
     tags: Mapped[list[str]] = mapped_column(JSON, default=list)
     source_kind: Mapped[str] = mapped_column(String(32), default="workspace_publish")
-    status: Mapped[str] = mapped_column(String(32), default="published")
+    status: Mapped[str] = mapped_column(String(32), default="published", index=True)
     created_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True),
         default=lambda: datetime.now(timezone.utc),
