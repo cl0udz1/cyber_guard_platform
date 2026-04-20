@@ -26,7 +26,7 @@ class ArtifactService:
         payload: ArtifactSubmissionRequest,
         normalized_value: str,
     ) -> ArtifactSubmissionResponse:
-        """Return the accepted artifact submission shape used by job responses."""
+        """Return the accepted artifact record passed into the scan job response."""
         return ArtifactSubmissionResponse(
             submission_id=str(uuid4()),
             workspace_id=payload.workspace_id,
