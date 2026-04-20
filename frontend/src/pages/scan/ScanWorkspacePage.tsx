@@ -25,7 +25,7 @@ export default function ScanWorkspacePage() {
       </div>
       <PlaceholderPanel
         title="Scan Job Integration TODOs"
-        ownerHint="Backend scan orchestration owner + frontend scan page owner"
+        ownerHint="220053973 FARIS (backend scan pipeline) + 220050709 GHAZA (frontend scan page)"
         summary="The implementation target is an async scan job flow with artifact normalization, multi-source enrichment, optional AI, and a generated report."
         todo={[
           "Connect file/hash/url/email_signal submission UI to `/scan-jobs`.",
