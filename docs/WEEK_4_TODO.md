@@ -57,5 +57,7 @@ The repo shows a complete private-to-public flow at scaffold level without break
 
 ## Carry-Over Notes
 
-- note any unresolved privacy rules here
-- note any shared backend/frontend naming conflicts here
+- Muhannad backend flow is now DB-backed end-to-end (report retrieval, publish request, admin decision, public feed update).
+- Sanitization checks now reject identity-like leaks (email, UUID-like IDs, unsafe query parameters).
+- Coordinate with Ghaza on frontend handling for empty admin queue and moderated publish statuses.
+- Coordinate with Abdullah on reflecting the new integration tests in docs/TEST_PLAN.md.

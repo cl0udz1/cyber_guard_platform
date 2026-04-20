@@ -13,6 +13,7 @@ TODO Checklist:
 """
 
 from fastapi import APIRouter, Depends
+from datetime import datetime
 
 from app.api.deps import get_current_principal, get_dashboard_service
 from app.schemas.auth import CurrentPrincipal
@@ -26,6 +27,12 @@ router = APIRouter(prefix="/dashboard", tags=["dashboard"])
 async def get_dashboard_overview(
     principal: CurrentPrincipal = Depends(get_current_principal),
     dashboard_service: DashboardService = Depends(get_dashboard_service),
+    start_date: datetime | None = None,
+    end_date: datetime | None = None,
 ) -> DashboardOverviewResponse:
     """Return high-level metrics for the active workspace."""
-    return dashboard_service.build_overview(principal.workspace_id or "demo-workspace")
+    return dashboard_service.build_overview(
+        principal.workspace_id or "demo-workspace",
+        start_date=start_date,
+        end_date=end_date,
+    )
