@@ -9,7 +9,8 @@ flowchart LR
     PATH -->|workspace report| REVIEW1[Policy / Optional Admin Review]
     PATH -->|external upload| REVIEW2[Admin Review Required]
 
-    REVIEW1 --> PUBLIC[Public Threats Page]
-    REVIEW2 --> PUBLIC
-    PUBLIC --> API[Future Public Threats API]
+    REVIEW1 --> PUBLICSAFE[Public-Safe Report]
+    REVIEW2 --> PUBLICSAFE
+    PUBLICSAFE --> PUBLIC[Public Threats Page]
+    PUBLICSAFE --> API[Future Public Threats API]
 ```

@@ -24,7 +24,7 @@ The backend contract surface is clear enough that frontend and service work can 
 | OMAR ABDURASHEED | Review adapter and cache interfaces to ensure downstream compatibility. | `backend/app/services/scan_orchestrator.py`, `backend/app/services/enrichment/base.py`, `backend/app/services/ai/base.py`, `backend/app/services/caching_service.py` |
 | MUHANNAD ALKHARMANI | Finalize report/dashboard/public/admin schema shape. | `backend/app/schemas/report.py`, `dashboard.py`, `public_threats.py`, `admin_review.py`, `backend/app/api/routes/reports.py`, `dashboard.py`, `public_threats.py`, `admin_reviews.py` |
 | GHAZA ALAMTRAFA | Mirror stable backend contract names into frontend types and page assumptions. | `frontend/src/types/*`, `frontend/src/pages/*`, `frontend/src/api/endpoints.ts` |
-| ABDULLAH BAALI | Update API contract, status tracker, and test plan after names are locked. | `docs/API_CONTRACT.md`, `docs/IMPLEMENTATION_STATUS.md`, `docs/TEST_PLAN.md` |
+| ABDULLAH BAALI | Update API contract, architecture/data-flow docs, status tracker, and test plan after names are locked. | `docs/API_CONTRACT.md`, `docs/ARCHITECTURE.md`, `docs/DATA_FLOW.md`, `docs/IMPLEMENTATION_STATUS.md`, `docs/TEST_PLAN.md` |
 
 ## Files Involved
 

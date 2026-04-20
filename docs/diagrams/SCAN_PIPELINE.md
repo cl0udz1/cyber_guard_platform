@@ -15,3 +15,8 @@ flowchart LR
     REPORT --> DASH[Dashboard Summary]
     REPORT --> SHARE[Optional Publish Request]
 ```
+
+Current scaffold note:
+
+- the flow is modeled as an async scan-job pipeline
+- the current scaffold may still execute the pipeline inline inside one backend process

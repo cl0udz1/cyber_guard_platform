@@ -35,3 +35,5 @@ flowchart TB
     ORGS -. no direct linkage .-> PUBLICREPORTS
     WORKSPACES -. no direct linkage .-> PUBLICREPORTS
 ```
+
+Public records shown here are intentionally sanitized outputs, not direct private report mirrors.

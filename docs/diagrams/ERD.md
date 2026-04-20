@@ -39,4 +39,5 @@ erDiagram
 
     %% Privacy note:
     %% PUBLIC_REPORTS intentionally has no FK to USERS, ORGANIZATIONS, WORKSPACES, or THREAT_REPORTS.
+    %% ADMIN_REVIEWS support moderation flow, but they should not weaken the public/private separation rule.
 ```

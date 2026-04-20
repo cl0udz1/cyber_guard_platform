@@ -63,14 +63,22 @@ This plan expands testing beyond simple endpoint checks. The updated product has
 - `backend/tests/integration/test_public_threats_routes.py`
 - `backend/tests/contract/test_api_contract_shape.py`
 
+Current local baseline:
+
+- the current automated suite passes locally
+- auth, scan jobs, and public threats already have scaffold integration coverage
+- permissions, sanitization, enrichment adapter shape, and API route presence already have automated checks
+
 ### Next Tests To Add
 
 - org/workspace creation authorization
-- integrations catalog response shape
-- AI mode `off` path
-- report publish request sanitizer edge cases
+- report retrieval and publish-request flow
+- report publish-request sanitizer edge cases
 - external upload review request path
+- admin review queue and decision success path
+- integrations catalog response shape
 - dashboard response shape and filters
+- AI mode `off` path
 
 ## Manual Checklist
 
@@ -87,4 +95,5 @@ This plan expands testing beyond simple endpoint checks. The updated product has
 - unit, integration, and contract tests pass locally
 - the public/private boundary has at least one dedicated automated test
 - route groups in docs and OpenAPI match
+- MVP route groups that exist in `docs/API_CONTRACT.md` are either covered by tests now or listed above as next coverage work
 - weekly TODO files point to test ownership clearly

@@ -10,6 +10,7 @@ flowchart LR
     API --> REPORTS[Report Routes]
     API --> PUBLIC[Public Threat Routes]
     API --> ADMIN[Admin Review Routes]
+    API --> INTEGRATIONS[Integrations Routes]
 
     JOBS --> ORCH[Scan Orchestrator]
     ORCH --> NORM[Normalization Service]
@@ -25,6 +26,8 @@ flowchart LR
 
     AI --> LOCAL[Local AI Mode]
     AI --> REMOTE[API AI Mode]
+    INTEGRATIONS --> CATALOG[Adapter Catalog]
+    INTEGRATIONS --> API2[Future Public Threats API Status]
 
     REP --> PRIVATE[(Private DB / Models)]
     REPORTS --> SHARE[Public Sharing Service]
@@ -33,5 +36,5 @@ flowchart LR
 
     PRIVATE --> DASH[Dashboard Service]
     PUBLICDB --> FEED[Public Threats Page]
-    PUBLICDB --> API2[Future Public Threats API]
+    PUBLICDB --> API3[Future Public Threats API]
 ```

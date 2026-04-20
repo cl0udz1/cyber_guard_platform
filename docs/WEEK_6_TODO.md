@@ -25,7 +25,7 @@ The repo is easy to review, easy to assign from, and easy to continue building.
 | OMAR ABDURASHEED | Review orchestration/adapters/AI/cache files for clean placeholder discipline. | `backend/app/services/scan_orchestrator.py`, `backend/app/services/enrichment/*`, `backend/app/services/ai/*`, `backend/app/services/caching_service.py` |
 | MUHANNAD ALKHARMANI | Review reports/dashboard/public/admin files for privacy-safe wording and structure. | `backend/app/api/routes/reports.py`, `dashboard.py`, `public_threats.py`, `admin_reviews.py`, `backend/app/services/public_sharing_service.py`, `sanitization_service.py` |
 | GHAZA ALAMTRAFA | Review frontend shell/page/component readability and assignment clarity. | `frontend/src/app/*`, `frontend/src/pages/*`, `frontend/src/components/*` |
-| ABDULLAH BAALI | Run tests/build, update status/evidence docs, and prepare supervisor update summary. | `backend/tests/*`, `docs/IMPLEMENTATION_STATUS.md`, `docs/EVIDENCE_INDEX.md`, `docs/SUPERVISOR_UPDATE_TEMPLATE.md`, `docs/HANDOFF_CHECKLIST.md` |
+| ABDULLAH BAALI | Run tests/build, update status/evidence/contract docs, and prepare supervisor update summary. | `backend/tests/*`, `frontend/src/api/endpoints.ts`, `docs/API_CONTRACT.md`, `docs/IMPLEMENTATION_STATUS.md`, `docs/EVIDENCE_INDEX.md`, `docs/SUPERVISOR_UPDATE_TEMPLATE.md`, `docs/HANDOFF_CHECKLIST.md` |
 
 ## Files Involved
 

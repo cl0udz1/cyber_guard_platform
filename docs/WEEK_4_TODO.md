@@ -25,7 +25,7 @@ The repo shows a complete private-to-public flow at scaffold level without break
 | OMAR ABDURASHEED | Confirm orchestration outputs are enough for report and dashboard usage. | `backend/app/services/scan_orchestrator.py`, `backend/app/services/enrichment/*`, `backend/app/services/ai/*` |
 | MUHANNAD ALKHARMANI | Own report, dashboard, public sharing, sanitization, and admin review backend shape. | `backend/app/api/routes/reports.py`, `dashboard.py`, `public_threats.py`, `admin_reviews.py`, `backend/app/services/report_service.py`, `dashboard_service.py`, `public_sharing_service.py`, `admin_review_service.py`, `sanitization_service.py` |
 | GHAZA ALAMTRAFA | Make report/dashboard/public-threat/workspace pages reflect current backend flow clearly. | `frontend/src/pages/reports/*`, `frontend/src/pages/dashboard/*`, `frontend/src/pages/public-threats/*`, `frontend/src/pages/workspace/*` |
-| ABDULLAH BAALI | Update diagrams, test plan, and status tracker to match the report/public flow. | `docs/DATA_FLOW.md`, `docs/diagrams/*`, `docs/TEST_PLAN.md`, `docs/IMPLEMENTATION_STATUS.md` |
+| ABDULLAH BAALI | Update diagrams, API/data-flow docs, test plan, and status tracker to match the report/public flow. | `docs/API_CONTRACT.md`, `docs/DATA_FLOW.md`, `docs/diagrams/*`, `docs/TEST_PLAN.md`, `docs/IMPLEMENTATION_STATUS.md` |
 
 ## Files Involved
 

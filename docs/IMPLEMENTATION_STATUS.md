@@ -1,5 +1,6 @@
 # IMPLEMENTATION_STATUS.md
 
+Last baseline update: ``
 Last baseline update: `2026-04-20`
 
 | Area | Owner | Status | Main Files | Depends On | Last Update | Blockers | Notes |
@@ -13,4 +14,4 @@ Last baseline update: `2026-04-20`
 | Reports + dashboard backend | 220041379 - MUHANNAD ALKHARMANI | Active (DB-backed) | `backend/app/api/routes/reports.py`, `backend/app/api/routes/dashboard.py`, `backend/app/services/report_service.py`, `backend/app/services/dashboard_service.py`, `backend/app/schemas/report.py`, `backend/app/schemas/dashboard.py` | Scan orchestration outputs | 2026-04-20 | Time-range filters still optional | Report retrieval is workspace-scoped and dashboard metrics come from persisted data |
 | Public sharing + admin review backend | 220041379 - MUHANNAD ALKHARMANI | Active (DB-backed) | `backend/app/api/routes/public_threats.py`, `backend/app/api/routes/admin_reviews.py`, `backend/app/services/public_sharing_service.py`, `backend/app/services/admin_review_service.py`, `backend/app/services/sanitization_service.py` | Report flow | 2026-04-20 | Awaiting frontend wiring to new moderation behavior | Publish/external flows are persisted, moderated, and tied to sanitization checks |
 | Frontend pages + components | 220050709 - GHAZA ALAMTRAFA | Scaffold ready | `frontend/src/app/*`, `frontend/src/pages/*`, `frontend/src/components/*`, `frontend/src/types/*` | Stable backend contracts | 2026-03-15 | Live API wiring not done | `npm run build` passes |
-| Docs + tests + diagrams + integration | 220003069 - ABDULLAH BAALI | Active owner | `docs/*`, `docs/diagrams/*`, `backend/tests/*`, `frontend/src/api/endpoints.ts` | Stable names from all owners | 2026-03-15 | Must be updated whenever contracts move | Coordinate merges and manual handoff submission with Muhannad as current integrator |
+| Docs + tests + diagrams + integration | 220003069 - ABDULLAH BAALI | Active owner | `docs/*`, `docs/diagrams/*`, `backend/tests/*`, `frontend/src/api/endpoints.ts` | Stable names from all owners | 2026-03-30 | Must be updated whenever contracts move | Core docs were realigned to repo truth and the current backend test baseline passes locally |

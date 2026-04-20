@@ -33,6 +33,7 @@ This is not a microservice architecture. The repo is optimized for student imple
 - `integrations.py`
 
 Routes are thin. They should validate access, call services, and return typed schemas.
+The `integrations.py` surface is intentionally small: it exposes adapter availability and public API status without turning adapter internals into route logic.
 
 ### Core Layer
 
@@ -94,6 +95,7 @@ Component folders mirror those domains. The current UI is mostly placeholders, b
 ## Async Jobs
 
 The repo models scan work as async jobs even though the current scaffold executes inside one process. This is intentional. It lets the API contract, frontend flow, and documentation match the real product shape before the team adds a real queue/worker.
+Tests and docs should describe that shape consistently: async from the product point of view, scaffold-inline from the current implementation point of view.
 
 ## Enrichment Adapters
 

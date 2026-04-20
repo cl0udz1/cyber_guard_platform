@@ -250,4 +250,6 @@ Response:
 - `scan-jobs` represents asynchronous execution even though the current scaffold runs inline.
 - `public-threats` must remain identity-safe.
 - `reports` are private workspace artifacts.
+- current scaffold tests already cover auth, scan-jobs, public-threats, and overall route presence.
+- remaining MVP route groups should stay explicitly tracked in the test plan until coverage is added.
 - `integrations/public-threats-api` is a planned phase-2 surface, not an MVP commitment.

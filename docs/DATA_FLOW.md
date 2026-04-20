@@ -20,6 +20,11 @@ This document explains the intended end-to-end flow from artifact submission to 
 8. The report service generates a private threat report.
 9. The dashboard service can summarize activity for the workspace.
 
+Current scaffold note:
+
+- the product flow is modeled as asynchronous scan work
+- the current scaffold may still execute that flow inline inside one backend process
+
 ## Publication Flow
 
 1. An organization views a private report.
@@ -60,3 +65,5 @@ Public flow data must not include:
 - workspace IDs
 - direct private report IDs
 - raw private references that allow re-linking
+
+This separation should stay consistent across routes, services, tests, and docs.

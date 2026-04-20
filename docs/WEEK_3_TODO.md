@@ -24,7 +24,7 @@ The scan job flow reads like a real system even though it is still scaffold-leve
 | OMAR ABDURASHEED | Own orchestration, adapters, cache behavior, and AI routing structure. | `backend/app/services/scan_orchestrator.py`, `backend/app/services/caching_service.py`, `backend/app/services/enrichment/*`, `backend/app/services/ai/*` |
 | MUHANNAD ALKHARMANI | Confirm report-ready output shape from the pipeline. | `backend/app/services/report_service.py`, `backend/app/schemas/report.py`, `backend/app/api/routes/reports.py` |
 | GHAZA ALAMTRAFA | Make scan-related frontend pages/components reflect the backend pipeline steps clearly. | `frontend/src/pages/scan/ScanWorkspacePage.tsx`, `frontend/src/components/scan/*`, `frontend/src/types/scan.ts` |
-| ABDULLAH BAALI | Add or refine tests covering duplicate submission, adapter shape, and pipeline contract. | `backend/tests/integration/test_scan_jobs_routes.py`, `backend/tests/unit/test_enrichment_adapters.py`, `docs/TEST_PLAN.md` |
+| ABDULLAH BAALI | Add or refine tests covering duplicate submission, adapter shape, and pipeline contract. | `backend/tests/integration/test_scan_jobs_routes.py`, `backend/tests/unit/test_enrichment_adapters.py`, `backend/tests/contract/test_api_contract_shape.py`, `docs/TEST_PLAN.md` |
 
 ## Files Involved
 

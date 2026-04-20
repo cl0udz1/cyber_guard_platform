@@ -25,7 +25,7 @@ The team is branch-ready, assignment-ready, and using one shared coordination fl
 | OMAR ABDURASHEED | Review enrichment/AI/cache/orchestrator ownership. Confirm which files are adapter-specific. | `backend/app/services/scan_orchestrator.py`, `backend/app/services/enrichment/*`, `backend/app/services/ai/*`, `backend/app/services/caching_service.py` |
 | MUHANNAD ALKHARMANI | Review report/dashboard/public-sharing/admin-review backend flow. Confirm boundaries. | `backend/app/api/routes/reports.py`, `dashboard.py`, `public_threats.py`, `admin_reviews.py`, `backend/app/services/report_service.py`, `public_sharing_service.py` |
 | GHAZA ALAMTRAFA | Review page/component ownership and frontend file grouping. | `frontend/src/app/*`, `frontend/src/pages/*`, `frontend/src/components/*`, `frontend/src/types/*` |
-| ABDULLAH BAALI | Finalize docs workflow, status tracker baseline, and weekly coordination setup. | `README.md`, `CONTRIBUTING.md`, `docs/TEAM_WORKFLOW.md`, `docs/IMPLEMENTATION_STATUS.md`, `docs/ASSIGNMENT_MAP.md` |
+| ABDULLAH BAALI | Finalize docs workflow, status tracker baseline, weekly coordination setup, and initial contract/test alignment notes. | `README.md`, `CONTRIBUTING.md`, `docs/TEAM_WORKFLOW.md`, `docs/IMPLEMENTATION_STATUS.md`, `docs/ASSIGNMENT_MAP.md`, `docs/API_CONTRACT.md`, `docs/TEST_PLAN.md` |
 
 ## Files Involved
 

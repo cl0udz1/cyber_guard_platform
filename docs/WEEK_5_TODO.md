@@ -24,7 +24,7 @@ A beginner can open the frontend and immediately know where scan, report, dashbo
 | OMAR ABDURASHEED | Confirm adapter/AI/cache behavior is described correctly in the UI placeholders. | `frontend/src/pages/scan/*`, `frontend/src/features/scan-jobs/*`, `frontend/src/utils/copy.ts` |
 | MUHANNAD ALKHARMANI | Confirm report/dashboard/public-review wording matches backend flow. | `frontend/src/pages/reports/*`, `frontend/src/pages/dashboard/*`, `frontend/src/pages/public-threats/*`, `frontend/src/pages/admin/*` |
 | GHAZA ALAMTRAFA | Own frontend cleanup, placeholder quality, and page/component alignment. | `frontend/src/app/*`, `frontend/src/pages/*`, `frontend/src/components/*`, `frontend/src/types/*`, `frontend/src/mocks/*` |
-| ABDULLAH BAALI | Own test/doc sync and make sure the weekly/status docs still match the repo. | `backend/tests/*`, `docs/IMPLEMENTATION_STATUS.md`, `docs/TEST_PLAN.md`, `docs/WEEK_5_TODO.md` |
+| ABDULLAH BAALI | Own test/doc sync and make sure the weekly/status docs and shared endpoint map still match the repo. | `backend/tests/*`, `frontend/src/api/endpoints.ts`, `docs/IMPLEMENTATION_STATUS.md`, `docs/TEST_PLAN.md`, `docs/WEEK_5_TODO.md` |
 
 ## Files Involved
 

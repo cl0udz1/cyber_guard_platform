@@ -7,9 +7,12 @@ EXPECTED_PATHS = {
     "/api/v1/workspaces",
     "/api/v1/scan-jobs",
     "/api/v1/reports/{report_id}",
+    "/api/v1/reports/{report_id}/publish-request",
+    "/api/v1/reports/external-upload",
     "/api/v1/public-threats",
     "/api/v1/admin-reviews/queue",
     "/api/v1/dashboard/overview",
+    "/api/v1/integrations/catalog",
     "/api/v1/integrations/public-threats-api",
 }
 
